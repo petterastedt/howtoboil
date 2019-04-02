@@ -9,7 +9,8 @@ const ContentSchema = new mongoose.Schema({
     page2: String,
     page3: String,
     page4: String,
-  }
+  },
+  subMenu: Boolean
 })
 
 const Content = mongoose.model('Content', ContentSchema);

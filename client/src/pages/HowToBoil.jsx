@@ -5,12 +5,14 @@ import Button from '../components/Button';
 import Instructions from '../components/Instructions';
 import api from '../api';
 
-function BoilRice (props) {
+
+function HowToBoil (props) {
   const [data, setData] = useState({
     name: null,
     subHeader: null,
     imgs: ['placeholder.png'],
-    instructions: {}
+    instructions: {},
+    subMenu: false
   })
   const [stateClicked, setStateClicked] = useState({
     selectedItemName: null,
@@ -46,15 +48,21 @@ function BoilRice (props) {
       ]
   })
   useEffect(() => {
+    // setTimeout(() => {
     api.getContent(props.match.params.typeId)
     .then(res => {
+      console.log(res[0].instructions)
       setData({
         name: res[0].name,
         subHeader: res[0].subHeader,
         imgs: res[0].imgUrls,
-        instructions: res[0].instructions
+        instructions: res[0].instructions,
+        subMenu: res[0].subMenu
       })
+      // }, 2000); 
+      
   })
+    
   }, [])
   const toggleSelected = (id) => {
     setStateClicked({
@@ -77,33 +85,45 @@ function BoilRice (props) {
       buttonClicked: !stateClicked.buttonClicked
     })
   }
+  const divStyle = {
+    left: '200',
+    position: 'relative',
+    background: 'tomato'
+  };
   return (
-  <div className={data.name && "BoilRice unShrink"}>
-  {!data.name && <div className="loading"><h1>Loading...</h1></div>}
+  <div className={data.name ? "HowToBoil unShrink" : "HowToBoil"}>
+    {!data.name && <div className="loading"><div className="loader"></div><h1>Loading...</h1></div>}
       <Logo title={data.name}
        logo={data.imgs[0]}
        subHeader={data.subHeader}
        />
+      {data.subMenu && 
       <SelectType
         titleHelper="type"
         title={stateClicked.selectedItemName ? stateClicked.selectedItemName : 'Select type of rice'}
         list={dropDownItems.type}
         toggleItem={toggleSelected}
         toggleMenu={toggleMenu}
-      />
+        />}
       <Button
         menuClicked={stateClicked.menuClicked}
         buttonClicked={stateClicked.buttonClicked}
         loadComponent={loadComponent} 
         />
-       {stateClicked.buttonClicked && stateClicked.selectedItemName !== null && 
-       <Instructions title={stateClicked.selectedItemName}
-        content={data.instructions}
+        <div className="content-carousel">
+        <div className="content-wrapper">
+        {stateClicked.buttonClicked && stateClicked.selectedItemName !== null && 
+        Object.values(data.instructions).map((content,i) =>
+        <Instructions title={stateClicked.selectedItemName}
+        content={content}
         icon={data.imgs}
-        />}
-       {/* <h1 onClick={() => fetchContent()}>{props.match.params.typeId}</h1> */}
+        slide={divStyle}
+        key={i}
+        />)}
+        </div>
+        </div>
   </div>
   )
 }
 
-export default BoilRice;
+export default HowToBoil;
