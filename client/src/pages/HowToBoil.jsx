@@ -5,19 +5,18 @@ import Button from '../components/Button';
 import Instructions from '../components/Instructions';
 import api from '../api';
 
-
 function HowToBoil (props) {
+  const [check, setCheck] = useState (false)
+  const [startButtonClicked, setStartButtonClicked] = useState (false)
+  const [subMenuClicked, setSubMenuClicked] = useState (false)
+  const [selectedSubMenuItem, setSelectedSubMenuItem] = useState (null)
+  const [divStyle, setDivStyle] = useState({right: '0'})
   const [data, setData] = useState({
     name: null,
     subHeader: null,
     imgs: ['placeholder.png'],
     instructions: {},
     subMenu: false
-  })
-  const [stateClicked, setStateClicked] = useState({
-    selectedItemName: null,
-    menuClicked: true,
-    buttonClicked: false
   })
   const [dropDownItems, setDropDownItems] = useState({
       type: [
@@ -51,7 +50,6 @@ function HowToBoil (props) {
     // setTimeout(() => {
     api.getContent(props.match.params.typeId)
     .then(res => {
-      console.log(res[0].instructions)
       setData({
         name: res[0].name,
         subHeader: res[0].subHeader,
@@ -59,40 +57,40 @@ function HowToBoil (props) {
         instructions: res[0].instructions,
         subMenu: res[0].subMenu
       })
-      // }, 2000); 
-      
+      // }, 2000);
   })
-    
   }, [])
   const toggleSelected = (id) => {
-    setStateClicked({
-      selectedItemName: dropDownItems.type[id].title,
-      menuClicked: !stateClicked.menuClicked,
-      buttonClicked: stateClicked.buttonClicked
-    })
+    setSelectedSubMenuItem(dropDownItems.type[id].title)
+    setSubMenuClicked(!subMenuClicked)
   }
   const toggleMenu = () => {
-    setStateClicked({
-      selectedItemName: stateClicked.selectedItemName,
-      menuClicked: !stateClicked.menuClicked,
-      buttonClicked: stateClicked.buttonClicked
+    setSubMenuClicked(!subMenuClicked)
+  }
+  const loadInstructions = () => {
+    setStartButtonClicked(!startButtonClicked)
+    if (data.subMenu && selectedSubMenuItem !== null || !data.subMenu) setCheck(!check)
+  }
+  const slideRight = () => {
+    const inc = 100/Object.keys(data.instructions).length 
+    parseInt(divStyle.right, 10) > 0 &&
+      setDivStyle({
+      right: `${parseInt(divStyle.right, 10) - inc}%`
+      })
+  }
+  const slideLeft = () => {
+    const inc = 100/Object.keys(data.instructions).length 
+    parseInt(divStyle.right, 10) < 100-(inc) ? 
+      setDivStyle({
+      right: `${parseInt(divStyle.right, 10) + inc}%`
+      }) :
+      setDivStyle({
+      right: `0`
     })
   }
-  const loadComponent = () => {
-    setStateClicked({
-      selectedItemName: stateClicked.selectedItemName,
-      menuClicked: stateClicked.menuClicked,
-      buttonClicked: !stateClicked.buttonClicked
-    })
-  }
-  const divStyle = {
-    left: '200',
-    position: 'relative',
-    background: 'tomato'
-  };
   return (
   <div className={data.name ? "HowToBoil unShrink" : "HowToBoil"}>
-    {!data.name && <div className="loading"><div className="loader"></div><h1>Loading...</h1></div>}
+    {/* {!data.name && <div className="loading"><div className="loader"></div><h1>Loading...</h1></div>} */}
       <Logo title={data.name}
        logo={data.imgs[0]}
        subHeader={data.subHeader}
@@ -100,24 +98,25 @@ function HowToBoil (props) {
       {data.subMenu && 
       <SelectType
         titleHelper="type"
-        title={stateClicked.selectedItemName ? stateClicked.selectedItemName : 'Select type of rice'}
+        title={selectedSubMenuItem ? selectedSubMenuItem : 'Select type of rice'}
         list={dropDownItems.type}
         toggleItem={toggleSelected}
         toggleMenu={toggleMenu}
         />}
       <Button
-        menuClicked={stateClicked.menuClicked}
-        buttonClicked={stateClicked.buttonClicked}
-        loadComponent={loadComponent} 
-        />
+        menuClicked={subMenuClicked}
+        buttonClicked={startButtonClicked}
+        loadComponent={loadInstructions} 
+        /> 
         <div className="content-carousel">
-        <div className="content-wrapper">
-        {stateClicked.buttonClicked && stateClicked.selectedItemName !== null && 
+        <div className="content-wrapper" style={divStyle}>
+        {check && 
         Object.values(data.instructions).map((content,i) =>
-        <Instructions title={stateClicked.selectedItemName}
+        <Instructions title={selectedSubMenuItem}
         content={content}
         icon={data.imgs}
-        slide={divStyle}
+        slideRight={slideRight}
+        slideLeft={slideLeft}
         key={i}
         />)}
         </div>

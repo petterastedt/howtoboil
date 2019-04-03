@@ -6,11 +6,9 @@ import Hamburger from './components/Hamburger'
 import './app.css'
 
 function App() {
-  const [stateClicked, setStateClicked] = useState({
-    hamburgerClicked: false
-  })
+  const [hamburgerClicked, setShamburgerClicked] = useState(false)
   const toggleHamburger = () => {
-    setStateClicked({hamburgerClicked: !stateClicked.hamburgerClicked})
+    setShamburgerClicked(!hamburgerClicked)
   }
   return (
   <div className="app">
@@ -18,7 +16,7 @@ function App() {
 	    <div className="content">
       <Hamburger 
       toggleHamburger={toggleHamburger}
-      hamburgerState={stateClicked.hamburgerClicked}
+      hamburgerState={hamburgerClicked}
       />
       <Switch>
           <Route path="/:typeId" component={HowToBoil} />

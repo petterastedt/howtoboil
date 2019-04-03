@@ -5,7 +5,7 @@ export default function Footer() {
     <div className="footer">
 	<p className="credits">
     A website by Petter Åstedt 
-    <a className="link" href="https://twitter.com/pipozoft"> GitHub | LinkedIn</a>
+    <a className="link" href="#"> GitHub | LinkedIn</a>
   </p>
 </div>
   )

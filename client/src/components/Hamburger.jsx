@@ -10,7 +10,6 @@ export default function Hamburger(props) {
         <div className="two"></div>
         <div className="three"></div>
         <div className="links">
-        <Link exact to="/boilrice">Boil Rice mafukka</Link>
         </div>
     </div>
   )
