@@ -19,12 +19,12 @@ function App() {
       hamburgerState={hamburgerClicked}
       />
       <Switch>
-          <Route path="/:typeId" component={HowToBoil} />
+          <Route path="/boil/:typeId" component={HowToBoil} />
           <Route render={() => <div className="error"><br /><h2>404: Page not found!</h2><br /><img src="https://media.giphy.com/media/6Q2KA5ly49368/giphy.gif" alt="404" /></div>}/>
       </Switch>
 	    </div>
     </div>
-    <Footer></Footer>
+    <Footer />
   </div>
   )
 }

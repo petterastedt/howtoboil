@@ -14,24 +14,37 @@ body {
   padding: 50px;
   transform: skew(0deg, 10deg); }
 
-.HowToBoil {
-  visibility: hidden; }
+.menu-wrapper {
+  display: flex; }
 
-.hamburger {
+.menu-wrapper .hamburger {
   cursor: pointer;
   width: 30px; }
 
-.hamburger .one, .hamburger .two, .hamburger .three {
+.menu-wrapper .hamburger .one, .menu-wrapper .hamburger .two, .menu-wrapper .hamburger .three {
   background: #000000;
   border-radius: 10px;
   height: 4px;
   margin: 3px; }
 
-.hamburger .links {
-  display: none; }
+.menu-wrapper .links {
+  display: none;
+  justify-content: center;
+  margin-top: 3px; }
 
-.green {
-  background: green; }
+.menu-wrapper .links .link-wrapper {
+  margin: 0 10px; }
+
+.menu-wrapper .links .link-wrapper .navlink {
+  color: #000000;
+  text-decoration: none;
+  margin: 0 2px; }
+
+.menu-wrapper .links .link-wrapper .navlink:hover {
+  font-weight: 700; }
+
+.show-menu {
+  display: flex !important; }
 
 .logo {
   display: flex;
@@ -273,6 +286,10 @@ body {
     transform: scale(1); } }
 
 .shrink {
+  animation: .5s shrink;
+  animation-fill-mode: forwards; }
+
+.shrink-button {
   animation: .3s shrink;
   animation-fill-mode: forwards; }
 

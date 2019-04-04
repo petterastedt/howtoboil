@@ -30,27 +30,47 @@ body {
     }
 }
 .HowToBoil {
-    visibility: hidden;
+    
 }
 //*********************************************
 //HAMBURGER
 //*********************************************
-.hamburger {
-    cursor: pointer;
-    width: 30px;
+.menu-wrapper { 
+    display: flex;
 
-    .one, .two, .three {
-        background: $main;
-        border-radius: 10px;
-        height: 4px;
-        margin: 3px;
+    .hamburger {
+        cursor: pointer;
+        width: 30px;
+    
+        .one, .two, .three {
+            background: $main;
+            border-radius: 10px;
+            height: 4px;
+            margin: 3px;
+        }
     }
     .links {
         display: none;
+        justify-content: center;
+        margin-top: 3px;
+    
+        .link-wrapper { 
+            margin: 0 10px;
+                
+            .navlink {
+                color: $text-dark;
+                text-decoration: none;
+                margin: 0 2px;
+
+                &:hover {
+                    font-weight: 700;
+                }
+            } 
+        }  
     }
 }
-.green {
-    background: green;
+.show-menu {
+    display: flex !important; 
 }
 //*********************************************
 //LOGO
@@ -340,6 +360,10 @@ body {
     }
 }
 .shrink {
+    animation: .5s shrink;
+    animation-fill-mode: forwards;
+}
+.shrink-button {
     animation: .3s shrink;
     animation-fill-mode: forwards;
 }

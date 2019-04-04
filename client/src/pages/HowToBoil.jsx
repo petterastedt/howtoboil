@@ -6,6 +6,7 @@ import Instructions from '../components/Instructions';
 import api from '../api';
 
 function HowToBoil (props) {
+  const [reload, setReload] = useState (true)
   const [check, setCheck] = useState (false)
   const [startButtonClicked, setStartButtonClicked] = useState (false)
   const [subMenuClicked, setSubMenuClicked] = useState (false)
@@ -47,9 +48,11 @@ function HowToBoil (props) {
       ]
   })
   useEffect(() => {
-    // setTimeout(() => {
+    setTimeout(() => {
     api.getContent(props.match.params.typeId)
     .then(res => {
+      setStartButtonClicked(false)
+      setReload(true)
       setData({
         name: res[0].name,
         subHeader: res[0].subHeader,
@@ -57,9 +60,16 @@ function HowToBoil (props) {
         instructions: res[0].instructions,
         subMenu: res[0].subMenu
       })
-      // }, 2000);
   })
-  }, [])
+  }, 600);
+  return () => {
+    setSelectedSubMenuItem(null)
+    setSubMenuClicked(false)
+    setDivStyle({right: 0})
+    setCheck(false)
+    setReload(false)
+  }
+  }, [props.match.params.typeId])
   const toggleSelected = (id) => {
     setSelectedSubMenuItem(dropDownItems.type[id].title)
     setSubMenuClicked(!subMenuClicked)
@@ -89,8 +99,8 @@ function HowToBoil (props) {
     })
   }
   return (
-  <div className={data.name ? "HowToBoil unShrink" : "HowToBoil"}>
-    {/* {!data.name && <div className="loading"><div className="loader"></div><h1>Loading...</h1></div>} */}
+  <div className={reload ? 'HowToBoil unShrink' : 'HowToBoil shrink'}>
+    {!data.name && <div className="loading"><div className="loader"></div><h1>Loading...</h1></div>}
       <Logo title={data.name}
        logo={data.imgs[0]}
        subHeader={data.subHeader}
@@ -107,12 +117,12 @@ function HowToBoil (props) {
         menuClicked={subMenuClicked}
         buttonClicked={startButtonClicked}
         loadComponent={loadInstructions} 
-        /> 
+        />
         <div className="content-carousel">
         <div className="content-wrapper" style={divStyle}>
         {check && 
         Object.values(data.instructions).map((content,i) =>
-        <Instructions title={selectedSubMenuItem}
+        <Instructions title={selectedSubMenuItem ? selectedSubMenuItem : data.name}
         content={content}
         icon={data.imgs}
         slideRight={slideRight}

@@ -5,7 +5,7 @@ export default function Button(props) {
         let name = ''
         if (!props.menuClicked) {name = 'main-button slideUp'}
         if (props.menuClicked) {name = 'main-button slideDown'}
-        if (props.buttonClicked) {name = 'main-button shrink'}
+        if (props.buttonClicked) {name = 'main-button shrink-button'}
         return name
     }
   return (

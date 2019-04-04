@@ -4,8 +4,10 @@ export default function Footer() {
   return (
     <div className="footer">
 	<p className="credits">
-    A website by Petter Åstedt 
-    <a className="link" href="#"> GitHub | LinkedIn</a>
+    &copy; 2019 Petter Åstedt 
+    <a className="link" href="https://github.com/petterastedt"> GitHub </a>
+    |
+    <a className="link" href="https://www.linkedin.com/in/petterastedt/"> LinkedIn</a>
   </p>
 </div>
   )
