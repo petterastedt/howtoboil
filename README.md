@@ -1,6 +1,6 @@
 # Howtoboil:
 
-## Side project intended to make life easier for people who cant boil stuff properly 😉
+## Website intended to make life easier for people who cant boil stuff properly 😉
 
 Created using **React** for the frontend, **Sass** for styling and **Node.js** for the backend.
 
