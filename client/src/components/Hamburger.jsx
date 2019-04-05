@@ -13,16 +13,16 @@ export default function Hamburger(props) {
         </div>
         <div className={props.hamburgerState ? 'links show-menu' : 'links'}>
           <div className="link-wrapper">
-            <NavLink to="/boil/rice" className="navlink">RICE</NavLink>
+            <NavLink to="/boil/rice" className="navlink" activeClassName="navlink-active">RICE</NavLink>
           </div>
           <div className="link-wrapper">
-            <NavLink to="/boil/potato" className="navlink">POTATOES</NavLink>
+            <NavLink to="/boil/potato" className="navlink" activeClassName="navlink-active">POTATOES</NavLink>
           </div>
           <div className="link-wrapper">
-            <NavLink to="/boil/egg" className="navlink">EGGS</NavLink>
+            <NavLink to="/boil/egg" className="navlink" activeClassName="navlink-active">EGGS</NavLink>
           </div>
           <div className="link-wrapper">
-            <NavLink to="/error" className="navlink">404 test</NavLink>
+            <NavLink to="/error" className="navlink" activeClassName="navlink-active">404 test</NavLink>
           </div>
         </div>
     </div>

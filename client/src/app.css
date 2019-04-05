@@ -50,7 +50,11 @@ body {
 .menu-wrapper .links .link-wrapper .navlink:hover {
   text-decoration: underline; }
 
+.menu-wrapper .links .link-wrapper .navlink-active {
+  text-decoration: underline; }
+
 .show-menu {
+  animation: unShrink .4s;
   display: flex !important; }
 
 .hamburger-close-top {
