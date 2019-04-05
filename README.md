@@ -2,6 +2,8 @@
 
 ## Website intended to make life easier for people who cant boil stuff properly 😉
 
+**Optimized for mobile!**
+
 Created using **React** and **Sass** for the frontend, **Node.js** with **express** and **mongodb** for the backend.
 
 Example of the "boil-an-egg-page":
