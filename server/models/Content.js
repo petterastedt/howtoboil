@@ -10,9 +10,12 @@ const ContentSchema = new mongoose.Schema({
     page3: String,
     page4: String,
   },
-  subMenu: Boolean
+  subMenu: Boolean,
+  subMenuItems: {
+    id: Number,
+    name: String
+  }
 })
-
 const Content = mongoose.model('Content', ContentSchema);
 
 module.exports = Content;

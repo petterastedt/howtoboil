@@ -6,9 +6,9 @@ import Hamburger from './components/Hamburger'
 import './app.css'
 
 function App() {
-  const [hamburgerClicked, setShamburgerClicked] = useState(false)
+  const [hamburgerClicked, setHamburgerClicked] = useState(false)
   const toggleHamburger = () => {
-    setShamburgerClicked(!hamburgerClicked)
+    setHamburgerClicked(!hamburgerClicked)
   }
   return (
   <div className="app">
