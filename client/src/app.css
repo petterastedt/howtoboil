@@ -18,8 +18,7 @@ body {
   padding: 50px;
   transform: skew(0deg, 10deg); }
 
-.HowToBoil {
-  padding-bottom: 60px;
+.app {
   overflow: hidden; }
 
 .menu-wrapper {
@@ -291,11 +290,11 @@ body {
   0% {
     top: 0; }
   100% {
-    top: 80px; } }
+    top: 120px; } }
 
 @keyframes slideUp {
   0% {
-    top: 80px; }
+    top: 120px; }
   100% {
     top: 0; } }
 
@@ -340,6 +339,8 @@ body {
     transform: rotate(360deg); } }
 
 @media only screen and (max-width: 768px) {
+  .HowToBoil {
+    padding-bottom: 15px; }
   .skewed-bg {
     padding: 200px 0 0 0; }
   .skewed-bg .content {
@@ -371,4 +372,6 @@ body {
     text-align: center; }
   .main-button {
     padding: 0;
-    margin: 60px 0 20px 0; } }
+    margin: 15px 0 20px 0; }
+  .footer {
+    padding-top: 90px; } }
