@@ -2,7 +2,7 @@
 
 ## Website intended to make life easier for people who cant boil stuff properly 😉
 
-Created using **React** for the frontend, **Sass** for styling and **Node.js** for the backend.
+Created using **React** and **Sass** for the frontend, **Node.js** with **express** and **mongodb** for the backend.
 
 Example of the "boil-an-egg-page":
 
