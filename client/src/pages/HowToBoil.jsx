@@ -5,13 +5,13 @@ import Button from '../components/Button';
 import Instructions from '../components/Instructions';
 import api from '../api';
 
-function HowToBoil (props) {
+export default function HowToBoil(props) {
   const [reload, setReload] = useState (true) // Controlling shrink/enlarge animation on URL change
   const [check, setCheck] = useState (false)  // Checks if type selected before loading instructions
   const [startButtonClicked, setStartButtonClicked] = useState (false) // Checks if start button is clicked
   const [subMenuClicked, setSubMenuClicked] = useState (false) // Checks if submenu is clicked
   const [selectedSubMenuItem, setSelectedSubMenuItem] = useState (null) // Stores the name of the selected subitem
-  const [divStyle, setDivStyle] = useState({right: '0%'}) // Stores value for instructions slider
+  const [divStyle, setDivStyle] = useState({right: '0%'}) // Stores position value for instructions slider
   const [data, setData] = useState({ // Stores data retrieved from database
     name: null,
     subHeader: null,
@@ -130,5 +130,3 @@ function HowToBoil (props) {
   </div>
   )
 }
-
-export default HowToBoil;
