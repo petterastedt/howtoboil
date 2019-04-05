@@ -108,11 +108,12 @@ export default function HowToBoil(props) {
         list={dropDownItems.type}
         toggleItem={toggleSelected}
         toggleMenu={toggleMenu}
+        check={check}
         />}
       <Button
         menuClicked={subMenuClicked}
         buttonClicked={startButtonClicked}
-        loadComponent={loadInstructions} 
+        loadComponent={loadInstructions}
         />
         <div className="content-carousel">
         <div className="content-wrapper" style={divStyle}>
