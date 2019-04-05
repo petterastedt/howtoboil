@@ -7,9 +7,9 @@ export default function Hamburger(props) {
     <div className="menu-wrapper">
     <div className="hamburger"
     onClick ={props.toggleHamburger}>
-        <div className="one"></div>
-        <div className="two"></div>
-        <div className="three"></div>
+        <div className={props.hamburgerState ? 'one hamburger-close-top' : 'one'}></div>
+        <div className={props.hamburgerState ? 'two hamburger-close-middle' : 'two'}></div>
+        <div className={props.hamburgerState ? 'three hamburger-close-bottom' : 'three'}></div>
         </div>
         <div className={props.hamburgerState ? 'links show-menu' : 'links'}>
           <div className="link-wrapper">

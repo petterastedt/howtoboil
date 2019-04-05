@@ -17,6 +17,7 @@ body {
     color: $text-light;
     font-family: $lato;
     font-size: 14px;
+    overflow-x: hidden;
 }
 .skewed-bg {
     background: $secondary; 
@@ -29,9 +30,6 @@ body {
         transform: skew(0deg, 10deg);
     }
 }
-.HowToBoil {
-    
-}
 //*********************************************
 //HAMBURGER
 //*********************************************
@@ -40,6 +38,7 @@ body {
 
     .hamburger {
         cursor: pointer;
+        transition: 1s all;
         width: 30px;
     
         .one, .two, .three {
@@ -47,14 +46,19 @@ body {
             border-radius: 10px;
             height: 4px;
             margin: 3px;
+            position: relative;
+            transition: .1s all;
         }
     }
     .links {
         display: none;
+        font-family: $fjalla;
+        font-size: 20px;
+        font-weight: lighter;
         justify-content: center;
-        margin-top: 3px;
     
-        .link-wrapper { 
+        .link-wrapper {
+            display: flex; 
             margin: 0 10px;
                 
             .navlink {
@@ -63,14 +67,25 @@ body {
                 margin: 0 2px;
 
                 &:hover {
-                    font-weight: 700;
+                    text-decoration: underline;
                 }
             } 
         }  
     }
 }
 .show-menu {
-    display: flex !important; 
+    display: flex !important;
+}
+.hamburger-close-top {
+    top: 7px;
+    transform: rotate(45deg);
+}
+.hamburger-close-middle {
+    opacity: 0;
+}
+.hamburger-close-bottom {
+    bottom: 7px;
+    transform: rotate(-45deg);
 }
 //*********************************************
 //LOGO
@@ -293,8 +308,8 @@ body {
     overflow: hidden;
     padding: 20px 0;
     position: fixed;
-    width: 100vw;
-    z-index: 1;
+    width: 100%;
+    z-index: 3;
 }
 .loader, .loader:after {
   border-radius: 50%;
@@ -345,7 +360,7 @@ body {
 }
 .unShrink {
     visibility: visible;
-    animation: 1s unShrink;
+    animation: .5s unShrink;
     animation-fill-mode: forwards;
 }
 @keyframes unShrink {
@@ -360,7 +375,7 @@ body {
     }
 }
 .shrink {
-    animation: .5s shrink;
+    animation: .4s shrink;
     animation-fill-mode: forwards;
 }
 .shrink-button {

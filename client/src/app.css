@@ -2,7 +2,8 @@ body {
   background: #000000;
   color: #ffffff;
   font-family: "Lato", sans-serif;
-  font-size: 14px; }
+  font-size: 14px;
+  overflow-x: hidden; }
 
 .skewed-bg {
   background: #eec92e;
@@ -19,20 +20,26 @@ body {
 
 .menu-wrapper .hamburger {
   cursor: pointer;
+  transition: 1s all;
   width: 30px; }
 
 .menu-wrapper .hamburger .one, .menu-wrapper .hamburger .two, .menu-wrapper .hamburger .three {
   background: #000000;
   border-radius: 10px;
   height: 4px;
-  margin: 3px; }
+  margin: 3px;
+  position: relative;
+  transition: .1s all; }
 
 .menu-wrapper .links {
   display: none;
-  justify-content: center;
-  margin-top: 3px; }
+  font-family: "Fjalla One", sans-serif;
+  font-size: 20px;
+  font-weight: lighter;
+  justify-content: center; }
 
 .menu-wrapper .links .link-wrapper {
+  display: flex;
   margin: 0 10px; }
 
 .menu-wrapper .links .link-wrapper .navlink {
@@ -41,10 +48,21 @@ body {
   margin: 0 2px; }
 
 .menu-wrapper .links .link-wrapper .navlink:hover {
-  font-weight: 700; }
+  text-decoration: underline; }
 
 .show-menu {
   display: flex !important; }
+
+.hamburger-close-top {
+  top: 7px;
+  transform: rotate(45deg); }
+
+.hamburger-close-middle {
+  opacity: 0; }
+
+.hamburger-close-bottom {
+  bottom: 7px;
+  transform: rotate(-45deg); }
 
 .logo {
   display: flex;
@@ -229,8 +247,8 @@ body {
   overflow: hidden;
   padding: 20px 0;
   position: fixed;
-  width: 100vw;
-  z-index: 1; }
+  width: 100%;
+  z-index: 3; }
 
 .loader, .loader:after {
   border-radius: 50%;
@@ -274,7 +292,7 @@ body {
 
 .unShrink {
   visibility: visible;
-  animation: 1s unShrink;
+  animation: .5s unShrink;
   animation-fill-mode: forwards; }
 
 @keyframes unShrink {
@@ -286,7 +304,7 @@ body {
     transform: scale(1); } }
 
 .shrink {
-  animation: .5s shrink;
+  animation: .4s shrink;
   animation-fill-mode: forwards; }
 
 .shrink-button {

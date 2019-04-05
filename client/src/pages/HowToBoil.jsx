@@ -6,13 +6,13 @@ import Instructions from '../components/Instructions';
 import api from '../api';
 
 function HowToBoil (props) {
-  const [reload, setReload] = useState (true)
-  const [check, setCheck] = useState (false)
-  const [startButtonClicked, setStartButtonClicked] = useState (false)
-  const [subMenuClicked, setSubMenuClicked] = useState (false)
-  const [selectedSubMenuItem, setSelectedSubMenuItem] = useState (null)
-  const [divStyle, setDivStyle] = useState({right: '0'})
-  const [data, setData] = useState({
+  const [reload, setReload] = useState (true) // Controlling shrink/enlarge animation on URL change
+  const [check, setCheck] = useState (false)  // Checks if type selected before loading instructions
+  const [startButtonClicked, setStartButtonClicked] = useState (false) // Checks if start button is clicked
+  const [subMenuClicked, setSubMenuClicked] = useState (false) // Checks if submenu is clicked
+  const [selectedSubMenuItem, setSelectedSubMenuItem] = useState (null) // Stores the name of the selected subitem
+  const [divStyle, setDivStyle] = useState({right: '0%'}) // Stores value for instructions slider
+  const [data, setData] = useState({ // Stores data retrieved from database
     name: null,
     subHeader: null,
     imgs: ['placeholder.png'],
@@ -24,32 +24,28 @@ function HowToBoil (props) {
         {
           id: 0,
           title: 'Jasmin',
-          selected: false,
           key: 'type'
         },
         {
           id: 1,
           title: 'Basmati',
-          selected: false,
           key: 'type'
         },
         {
           id: 2,
           title: 'Whole grain',
-          selected: false,
           key: 'type'
         },
         {
           id: 3,
           title: 'Boil in bag',
-          selected: false,
           key: 'type'
         }
       ]
   })
   useEffect(() => {
     setTimeout(() => {
-    api.getContent(props.match.params.typeId)
+    api.getContent(props.match.params.typeId) // Calling backend on component load
     .then(res => {
       setStartButtonClicked(false)
       setReload(true)
@@ -61,15 +57,15 @@ function HowToBoil (props) {
         subMenu: res[0].subMenu
       })
   })
-  }, 600);
-  return () => {
+  }, 500);
+  return () => { // Resets values when leaving/reloading component
     setSelectedSubMenuItem(null)
     setSubMenuClicked(false)
     setDivStyle({right: 0})
     setCheck(false)
     setReload(false)
   }
-  }, [props.match.params.typeId])
+  }, [props.match.params.typeId]) //Fires on URL change
   const toggleSelected = (id) => {
     setSelectedSubMenuItem(dropDownItems.type[id].title)
     setSubMenuClicked(!subMenuClicked)
@@ -95,7 +91,7 @@ function HowToBoil (props) {
       right: `${parseInt(divStyle.right, 10) + inc}%`
       }) :
       setDivStyle({
-      right: `0`
+      right: '0%'
     })
   }
   return (
@@ -105,7 +101,7 @@ function HowToBoil (props) {
        logo={data.imgs[0]}
        subHeader={data.subHeader}
        />
-      {data.subMenu && 
+      {data.subMenu && !startButtonClicked &&
       <SelectType
         titleHelper="type"
         title={selectedSubMenuItem ? selectedSubMenuItem : 'Select type of rice'}

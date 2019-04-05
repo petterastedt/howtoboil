@@ -6,18 +6,22 @@ export default function Instructions(props) {
         <h2>{props.title}</h2>
         <p>{props.content}</p>
         <div className="icons-wrapper">
+        {props.slideStyle !== '0%' &&
         <img 
         src={require("../icons/001__arrow_left.svg")} 
         alt="arrow-left" 
         className="left-icon"
         onClick={props.slideRight}
         />
+        }
+        {props.slideStyle !== '100%' &&
         <img 
         src={require("../icons/002__arrow_right.svg")} 
         alt="arrow-right" 
         className="right-icon"
         onClick={props.slideLeft}
         />
+      }
         </div>
     </div>
   )
