@@ -18,10 +18,32 @@ let users = [
       page2: 'Test2',
       page3: 'Test3',
       page4: 'Test4',
-  }
+    },
+    subMenu: true,
+    subMenuItems: [
+      {
+        id: 0,
+        title: 'Jasmin',
+        key: 'type'
+      },
+      {
+        id: 1,
+        title: 'Basmati',
+        key: 'type'
+      },
+      {
+        id: 2,
+        title: 'Whole grain',
+        key: 'type'
+      },
+      {
+        id: 3,
+        title: 'Boil in bag',
+        key: 'type'
+      }
+    ]
   }
 ]
-
 Content.deleteMany()
   .then(() => {
     return Content.create(users)

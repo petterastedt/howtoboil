@@ -11,10 +11,10 @@ const ContentSchema = new mongoose.Schema({
     page4: String,
   },
   subMenu: Boolean,
-  subMenuItems: {
-    id: Number,
-    name: String
-  }
+  subMenuItems: [{
+      id: Number,
+      title: String
+    }]
 })
 const Content = mongoose.model('Content', ContentSchema);
 

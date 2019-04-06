@@ -17,31 +17,8 @@ export default function HowToBoil(props) {
     subHeader: null,
     imgs: ['placeholder.png'],
     instructions: {},
-    subMenu: false
-  })
-  const [dropDownItems, setDropDownItems] = useState({
-      type: [
-        {
-          id: 0,
-          title: 'Jasmin',
-          key: 'type'
-        },
-        {
-          id: 1,
-          title: 'Basmati',
-          key: 'type'
-        },
-        {
-          id: 2,
-          title: 'Whole grain',
-          key: 'type'
-        },
-        {
-          id: 3,
-          title: 'Boil in bag',
-          key: 'type'
-        }
-      ]
+    subMenu: false,
+    subMenuItems: null
   })
   useEffect(() => {
     setTimeout(() => {
@@ -54,7 +31,8 @@ export default function HowToBoil(props) {
         subHeader: res[0].subHeader,
         imgs: res[0].imgUrls,
         instructions: res[0].instructions,
-        subMenu: res[0].subMenu
+        subMenu: res[0].subMenu,
+        subMenuItems: res[0].subMenuItems
       })
   })
   }, 500);
@@ -67,7 +45,7 @@ export default function HowToBoil(props) {
   }
   }, [props.match.params.typeId]) //Fires on URL change
   const toggleSelected = (id) => {
-    setSelectedSubMenuItem(dropDownItems.type[id].title)
+    setSelectedSubMenuItem(data.subMenuItems[id].title)
     setSubMenuClicked(!subMenuClicked)
   }
   const toggleMenu = () => {
@@ -105,7 +83,7 @@ export default function HowToBoil(props) {
       <SelectType
         titleHelper="type"
         title={selectedSubMenuItem ? selectedSubMenuItem : 'Select type of rice'}
-        list={dropDownItems.type}
+        list={data.subMenuItems}
         toggleItem={toggleSelected}
         toggleMenu={toggleMenu}
         check={check}

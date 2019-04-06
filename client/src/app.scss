@@ -12,7 +12,7 @@ $fjalla: 'Fjalla One', sans-serif;
 //*********************************************
 //GLOBAL
 //*********************************************
-html {
+html, body {
     height: 100%;
 }
 body {
@@ -20,21 +20,18 @@ body {
     color: $text-light;
     font-family: $lato;
     font-size: 14px;
-    height: calc(100% - 117px);
 }
 .skewed-bg {
     background: $secondary; 
     margin-top: -200px; 
     padding: 200px 0;
     transform: skew(0deg, -10deg);
-
+    
     .content {
         padding: 50px;
         transform: skew(0deg, 10deg);
+        overflow: hidden;
     }
-}
-.app {
-    overflow: hidden;
 }
 //*********************************************
 //HAMBURGER
@@ -200,6 +197,7 @@ body {
     position: relative;
     transition: 1s all ease-in-out;
     width: 100%;
+    z-index: 3;
 
     .button {
         align-items: center;
@@ -249,9 +247,7 @@ body {
     margin: 0 auto;
     height: 400px;
     width: 300px;
-    // bottom: 180px;
     position: relative;
-    z-index: 1;
 
     h2 {
         font-family: $fjalla;
@@ -281,7 +277,11 @@ body {
 //FOOTER
 //*********************************************
 .footer {
-    padding-top: 100px;
+    padding-top: 30px;
+    bottom: 0;
+    position: relative;
+    height: 30px;
+    width: 100%;
 
     .credits {
         text-align: center;
@@ -310,7 +310,7 @@ body {
     color: $main;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 455px;
     justify-content: center;
     left:0;
     margin: 0 auto;
@@ -420,11 +420,11 @@ body {
 //MEDIA QUERIES MOBILE
 //*********************************************
 @media only screen and (max-width: 768px) {
-
     .HowToBoil {
         padding-bottom: 15px;
     }
     .skewed-bg {
+        min-height: 89vh;
         padding: 200px 0 0 0;
     }
 
@@ -470,8 +470,5 @@ body {
     .main-button {
         padding: 0;
         margin: 15px 0 20px 0;
-    }
-    .footer {
-        padding-top: 90px;
     }
   }
