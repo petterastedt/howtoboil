@@ -228,7 +228,6 @@ body {
     display: flex;
     flex-direction: row;
     position: relative;
-    width: 400%;
 }
 .content-wrapper {
     display: flex;
@@ -253,6 +252,7 @@ body {
         font-family: $fjalla;
         font-size: 30px;
         font-weight: 300;
+        margin-bottom: 10px;
         text-align: center;
         text-transform: uppercase;
     }
@@ -260,14 +260,21 @@ body {
     p {
         margin: 10px;
     }
+
+    .instructions-icon {
+        height: 60px;
+        margin: 0 auto;
+        width: 60px;
+    }
+
     .icons-wrapper {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
 
         img {
             cursor: pointer;
             height: 50px;
-            margin: 10px 50px;
             width: 50px;
         }
     }
@@ -392,12 +399,26 @@ body {
     animation-fill-mode: forwards;
     position: absolute;
 }
+.shrink-logo {
+    animation: .3s shrink-logo;
+    animation-fill-mode: forwards;
+    padding-top: 0 !important;
+    transition: .3s all;
+}
 @keyframes shrink {
     0% {
         transform: scale(1);
     }
     100% {
         transform: scale(0);
+    }
+}
+@keyframes shrink-logo {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.9);
     }
 }
 @keyframes swipeLeft {

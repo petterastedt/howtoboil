@@ -12,6 +12,7 @@ export default function HowToBoil(props) {
   const [subMenuClicked, setSubMenuClicked] = useState (false) // Checks if submenu is clicked
   const [selectedSubMenuItem, setSelectedSubMenuItem] = useState (null) // Stores the name of the selected subitem
   const [divStyle, setDivStyle] = useState({right: '0%'}) // Stores position value for instructions slider
+  const [divSize, setDivSize] = useState({width: '100%'}) // Sets the width of slider container depending on how many items are loded
   const [data, setData] = useState({ // Stores data retrieved from database
     name: null,
     subHeader: null,
@@ -34,8 +35,8 @@ export default function HowToBoil(props) {
         subMenu: res[0].subMenu,
         subMenuItems: res[0].subMenuItems
       })
-  })
-  }, 500);
+    })
+  }, 500)
   return () => { // Resets values when leaving/reloading component
     setSelectedSubMenuItem(null)
     setSubMenuClicked(false)
@@ -44,6 +45,11 @@ export default function HowToBoil(props) {
     setReload(false)
   }
   }, [props.match.params.typeId]) //Fires on URL change
+  useEffect(() => {
+    setDivSize({
+      width: `${Object.keys(data.instructions).length*100}%`
+    })
+  }, [data.instructions]) // Sets corrent size of slider div on component update
   const toggleSelected = (id) => {
     setSelectedSubMenuItem(data.subMenuItems[id].title)
     setSubMenuClicked(!subMenuClicked)
@@ -78,6 +84,7 @@ export default function HowToBoil(props) {
       <Logo title={data.name}
        logo={data.imgs[0]}
        subHeader={data.subHeader}
+       buttonClicked={startButtonClicked}
        />
       {data.subMenu && !startButtonClicked &&
       <SelectType
@@ -93,13 +100,16 @@ export default function HowToBoil(props) {
         buttonClicked={startButtonClicked}
         loadComponent={loadInstructions}
         />
-        <div className="content-carousel">
-        <div className="content-wrapper" style={divStyle}>
+        <div className="content-carousel" 
+        style={divSize}>
+        <div className="content-wrapper" 
+        style={divStyle}
+        >
         {check && 
         Object.values(data.instructions).map((content,i) =>
         <Instructions title={selectedSubMenuItem ? selectedSubMenuItem : data.name}
         content={content}
-        icon={data.imgs}
+        icon={data.imgs[i+1]}
         slideRight={slideRight}
         slideLeft={slideLeft}
         key={i}

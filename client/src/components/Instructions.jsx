@@ -4,6 +4,9 @@ export default function Instructions(props) {
   return (
     <div className="instructions">
         <h2>{props.title}</h2>
+        <img 
+        src={require(`../icons/${props.icon}`)}
+        className="instructions-icon" />
         <p>{props.content}</p>
         <div className="icons-wrapper">
         {props.slideStyle !== '0%' &&
