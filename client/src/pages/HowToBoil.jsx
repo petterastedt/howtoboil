@@ -13,7 +13,6 @@ export default function HowToBoil(props) {
   const [selectedSubMenuItem, setSelectedSubMenuItem] = useState (null) // Stores the name of the selected subitem
   const [divStyle, setDivStyle] = useState({right: '0%'}) // Stores position value for instructions slider
   const [divSize, setDivSize] = useState({width: '100%'}) // Sets the width of slider container depending on how many items are loded
-  // const [touchPos, setTouchPos] = useState (null) // used for touch functionallity
   const [data, setData] = useState({ // Stores data retrieved from database
     name: null,
     subHeader: null,
@@ -79,33 +78,6 @@ export default function HowToBoil(props) {
       right: '0%'
     })
   }
-// TOUCH FUNCTIONALLITY NEEDS TWEAKING  
-//   const handleTouchStart = (event) => {
-//     setTouchPos(event.touches[0].clientX)
-//     console.log(touchPos)
-//   }
-//   const handleTouchMove = (event) => {
-//     let change = touchPos - event.touches[0].clientX
-
-//     setDivStyle({
-//       right: `${change/10}%`
-//       })
-
-//     event.preventDefault()  
-//       console.log('right:', divStyle.right)
-//   }
-//   const handleTouchEnd = (event) => {
-//     let change = touchPos - event.changedTouches[0].clientX
-//     let diff = window.screen.width/3
-//     let val = parseInt(divStyle.right, 10)
-
-//     if (change < diff) {
-//       setDivStyle({right: `${0}%`})
-//     } else {
-//       setDivStyle({right: `${Math.round(val / 25) * 25}%`})
-//     }
-//     console.log('like this:', divStyle.right)
-// } 
   return (
   <div className={reload ? 'HowToBoil unShrink' : 'HowToBoil shrink'}>
     {!data.name && <div className="loading"><div className="loader"></div><h1>Loading...</h1></div>}
@@ -132,10 +104,6 @@ export default function HowToBoil(props) {
         style={divSize}>
         <div className="content-wrapper" 
         style={divStyle}
-        // TOUCH FUNCTIONALLITY NEEDS TWEAKING 
-        // onTouchStart={(event) => handleTouchStart(event)}
-        // onTouchMove={(event) => handleTouchMove(event)}
-        // onTouchEnd={(event) => handleTouchEnd(event)}
         >
         {check && 
         Object.values(data.instructions).map((content,i) =>
