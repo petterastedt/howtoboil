@@ -10,4 +10,12 @@ Example of the "boil-an-egg-page":
 
 ![demo](https://user-images.githubusercontent.com/34421443/55618689-6bb1bf80-5797-11e9-8e65-ec9b025fbd4b.png)
 
-This README will be updated shortly.
+## TODO:
+
+- [ ] Add custom icons to instructions component
+- [ ] Styling for big screens (Desktop)
+- [ ] Add touch/swipe functionallity for content slider
+- [ ] Clean up SCSS file
+- [ ] Add timer for instructions component
+- [ ] Add proper home-page
+- [ ] Deploy to Heroku / github pages
