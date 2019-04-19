@@ -39,7 +39,8 @@ body {
   font-family: "Fjalla One", sans-serif;
   font-size: 20px;
   font-weight: lighter;
-  justify-content: center; }
+  justify-content: center;
+  width: 100%; }
 
 .menu-wrapper .links .link-wrapper {
   display: flex;
@@ -154,8 +155,7 @@ body {
   margin: 0 auto;
   position: relative;
   transition: 1s all ease-in-out;
-  width: 100%;
-  z-index: 3; }
+  width: 100%; }
 
 .main-button .button {
   align-items: center;
@@ -166,7 +166,9 @@ body {
   height: 15vh;
   justify-content: center;
   transition: .3s all;
-  width: 15vh; }
+  width: 15vh;
+  position: relative;
+  z-index: 23 !important; }
 
 .main-button .button:hover {
   transform: scale(1.1); }
@@ -190,17 +192,23 @@ body {
   width: 100%; }
 
 .instructions {
+  background: #eec92e;
   border: 2px solid #000;
   animation: .5s unShrink;
   animation-fill-mode: forwards;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   margin: 0 auto;
   height: 400px;
   width: 300px;
   position: relative; }
 
-.instructions h2 {
+.instructions .instructions-content-wrapper {
+  display: flex;
+  flex-direction: column; }
+
+.instructions .instructions-content-wrapper h2 {
   font-family: "Fjalla One", sans-serif;
   font-size: 30px;
   font-weight: 300;
@@ -208,22 +216,19 @@ body {
   text-align: center;
   text-transform: uppercase; }
 
-.instructions p {
-  margin: 10px; }
-
-.instructions .instructions-icon {
+.instructions .instructions-content-wrapper .instructions-icon {
   height: 60px;
-  margin: 0 auto;
+  margin: 5px auto;
   width: 60px; }
 
-.instructions .icons-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
+.instructions .instructions-content-wrapper .instructions-ul li {
+  padding: 0; }
 
-.instructions .icons-wrapper img {
+.instructions img {
   cursor: pointer;
   height: 50px;
+  margin: auto -10px;
+  position: relative;
   width: 50px; }
 
 .footer {
