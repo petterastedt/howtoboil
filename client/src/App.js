@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Footer from './components/Footer';
 import HowToBoil from './pages/HowToBoil'
+import NotFound404 from './pages/NotFound404'
 import Hamburger from './components/Hamburger'
 import './app.css'
 
@@ -20,7 +21,7 @@ function App() {
       />
       <Switch>
           <Route path="/boil/:typeId" component={HowToBoil} />
-          <Route render={() => <div className="error"><br /><h2>404: Page not found!</h2><br /><img src="https://media.giphy.com/media/6Q2KA5ly49368/giphy.gif" alt="404" /></div>}/>
+          <Route path="*" component={NotFound404} />
       </Switch>
 	    </div>
     </div>
