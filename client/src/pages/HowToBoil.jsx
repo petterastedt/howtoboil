@@ -57,7 +57,10 @@ export default function HowToBoil(props) {
   const toggleMenu = () => {
     setSubMenuClicked(!subMenuClicked)
   }
-  const loadInstructions = () => {
+  const loadInstructions = () => { // Loads instructions component and (if on mobile) scroll to bottom
+    setTimeout(() => {
+    window.innerWidth < 768 && window.scrollTo(0,document.body.scrollHeight)
+    },100 )
     setStartButtonClicked(!startButtonClicked)
     if (data.subMenu && selectedSubMenuItem !== null || !data.subMenu) setCheck(!check)
   }
@@ -67,6 +70,7 @@ export default function HowToBoil(props) {
       setDivStyle({
       right: `${parseInt(divStyle.right, 10) - inc}%`
       })
+      
   }
   const slideLeft = () => {
     const inc = 100/Object.keys(data.instructions).length 
@@ -113,6 +117,7 @@ export default function HowToBoil(props) {
         slideRight={slideRight}
         slideLeft={slideLeft}
         key={i}
+        id={i}
         />)}
         </div>
         </div>

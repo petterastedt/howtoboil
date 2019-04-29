@@ -12,7 +12,7 @@ export default function Instructions(props) {
         />
         }
         <div className="instructions-content-wrapper">
-        <h2>{props.title}</h2>
+        <h2>Step {props.id +1}</h2>
         <img 
         src={require(`../icons/${props.icon}`)}
         className="instructions-icon" 
