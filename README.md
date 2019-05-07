@@ -12,9 +12,9 @@ Application demo:
 
 ## TODO:
 
-- [ ] Add custom icons to instructions component (partially finished)
+- [ ] Add custom icons to instructions component (**partially finished**)
 - [ ] Styling for big screens (Desktop)
-- [ ] Add touch/swipe functionallity for content slider
+- [x] Add touch/swipe functionallity for content slider
 - [ ] Clean up SCSS file
 - [ ] Add timer for instructions component
 - [ ] Add proper home-page
