@@ -87,7 +87,7 @@ export default function HowToBoil(props) {
   }
   const handleTouchEnd = (event) => {
     let change = touchPos - event.changedTouches[0].clientX
-    change < 0 ? slideRight() : slideLeft()
+    change < 10 ? slideRight() : slideLeft()
 } 
   return (
   <div className={reload ? 'HowToBoil unShrink' : 'HowToBoil shrink'}>
