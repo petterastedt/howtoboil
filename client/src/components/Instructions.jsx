@@ -3,14 +3,12 @@ import React from 'react'
 export default function Instructions(props) {
   return (
     <div className="instructions">
-        {props.slideStyle !== '0%' &&
         <img 
         src={require("../icons/001__arrow_left.svg")} 
         alt="arrow-left" 
         className="left-icon"
         onClick={props.slideRight}
         />
-        }
         <div className="instructions-content-wrapper">
         <h2>Step {props.id +1}</h2>
         <img 

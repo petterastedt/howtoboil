@@ -57,6 +57,7 @@ body {
   text-decoration: underline; }
 
 .menu-wrapper .links .link-wrapper .navlink-active {
+  color: #fff;
   text-decoration: underline; }
 
 .show-menu {

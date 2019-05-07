@@ -13,6 +13,7 @@ export default function HowToBoil(props) {
   const [selectedSubMenuItem, setSelectedSubMenuItem] = useState (null) // Stores the name of the selected subitem
   const [divStyle, setDivStyle] = useState({right: '0%'}) // Stores position value for instructions slider
   const [divSize, setDivSize] = useState({width: '100%'}) // Sets the width of slider container depending on how many items are loded
+  const [touchPos, setTouchPos] = useState (null) // Used for swipe functionallity
   const [data, setData] = useState({ // Stores data retrieved from database
     name: null,
     subHeader: null,
@@ -65,23 +66,29 @@ export default function HowToBoil(props) {
     if (data.subMenu && selectedSubMenuItem !== null || !data.subMenu) setCheck(!check)
   }
   const slideRight = () => {
-    const inc = 100/Object.keys(data.instructions).length 
-    parseInt(divStyle.right, 10) > 0 &&
+    const inc = 100/Object.keys(data.instructions).length
+    parseFloat(divStyle.right, 10) > 0 &&
       setDivStyle({
-      right: `${parseInt(divStyle.right, 10) - inc}%`
+      right: `${parseFloat(divStyle.right, 10) - inc}%`
       })
-      
   }
   const slideLeft = () => {
-    const inc = 100/Object.keys(data.instructions).length 
-    parseInt(divStyle.right, 10) < 100-(inc) ? 
+    const inc = 100/Object.keys(data.instructions).length
+    parseFloat(divStyle.right, 10) < 100-(inc) ? 
       setDivStyle({
-      right: `${parseInt(divStyle.right, 10) + inc}%`
+      right: `${parseFloat(divStyle.right, 10) + inc}%`
       }) :
       setDivStyle({
       right: '0%'
     })
   }
+  const handleTouchStart = (event) => {
+    setTouchPos(event.touches[0].clientX)
+  }
+  const handleTouchEnd = (event) => {
+    let change = touchPos - event.changedTouches[0].clientX
+    change < 0 ? slideRight() : slideLeft()
+} 
   return (
   <div className={reload ? 'HowToBoil unShrink' : 'HowToBoil shrink'}>
     {!data.name && <div className="loading"><div className="loader"></div><h1>Loading...</h1></div>}
@@ -108,12 +115,15 @@ export default function HowToBoil(props) {
         style={divSize}>
         <div className="content-wrapper" 
         style={divStyle}
+        onTouchStart={(event) => handleTouchStart(event)}
+        onTouchEnd={(event) => handleTouchEnd(event)}
         >
         {check && 
         Object.values(data.instructions).map((content,i) =>
         <Instructions title={selectedSubMenuItem ? selectedSubMenuItem : data.name}
         content={content}
         icon={data.imgs[i+1]}
+        slideStyle={divStyle.right}
         slideRight={slideRight}
         slideLeft={slideLeft}
         key={i}
