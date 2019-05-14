@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 
 export default function Timer() {
   const [timerIsStarted, setTimerIsStarted] = useState(false)
-  const countdownSeconds = useRef(900)
+  const [timerIsHidden, setTimerIsHidden] = useState(true)
+  const countdownSeconds = useRef(900) // Number of seconds to count down, default 900 (15min)
   const [secMin, setSecMin] = useState({
     min: Math.floor(countdownSeconds.current / 60),
     sec: '00'
@@ -27,11 +28,15 @@ export default function Timer() {
   })
   return (
     <div className="countdown-timer">
-        <div className='timer'>
+        <div className={timerIsHidden ? 'timer' : 'timer unShrink'}>
         {secMin.min}:{secMin.sec}
         </div>
         <div className="timer-button"
-        onClick={() => setTimerIsStarted(!timerIsStarted)}
+        onClick={() => {
+          setTimerIsStarted(!timerIsStarted)
+          setTimerIsHidden(false)
+        }
+        }
         >
           <span>{timerIsStarted ? 'PAUSE TIMER' : 'START TIMER'}</span>
         </div>
