@@ -16,6 +16,6 @@ Application demo:
 - [ ] Styling for big screens (Desktop)
 - [x] ~~Add touch/swipe functionallity for content slider~~
 - [ ] Clean up SCSS file
-- [ ] Add timer for instructions component
+- [x] ~~Add timer for instructions component~~
 - [ ] Add proper home-page
 - [ ] Deploy to Heroku / github pages
