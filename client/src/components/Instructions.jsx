@@ -1,4 +1,5 @@
 import React from 'react'
+import Timer from './Timer'
 
 export default function Instructions(props) {
   return (
@@ -16,6 +17,7 @@ export default function Instructions(props) {
         className="instructions-icon" 
         alt="instructions-icon"/>
         <p dangerouslySetInnerHTML={{ __html: props.content }}></p>
+        {props.content.includes('min') && <Timer />}
         </div>
         {props.slideStyle !== '100%' &&
         <img 

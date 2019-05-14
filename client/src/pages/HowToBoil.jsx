@@ -90,7 +90,7 @@ export default function HowToBoil(props) {
     if (change < 0) slideRight()
     else if (change > 0) slideLeft()
     else if (change === 0) return
-} 
+  } 
   return (
   <div className={reload ? 'HowToBoil unShrink' : 'HowToBoil shrink'}>
     {!data.name && <div className="loading"><div className="loader"></div><h1>Loading...</h1></div>}

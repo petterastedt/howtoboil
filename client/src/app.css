@@ -240,6 +240,27 @@ body {
   position: relative;
   width: 50px; }
 
+.timer {
+  font-size: 38px;
+  margin-bottom: 20px;
+  text-align: center; }
+
+.timer-button {
+  align-items: center;
+  background: #0b3b8f;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  font-family: "Fjalla One", sans-serif;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px 20px;
+  transition: .3s all;
+  width: 70px; }
+
+.timer-button:hover {
+  transform: scale(1.1); }
+
 .footer {
   height: 30px;
   position: relative;

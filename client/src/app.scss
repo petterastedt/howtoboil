@@ -290,6 +290,28 @@ body {
         width: 50px;
     }
 }
+.timer {
+    font-size: 38px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.timer-button {
+    align-items: center;
+    background: $third;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    font-family: $fjalla;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 20px;
+    transition: .3s all;
+    width: 70px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
 //*********************************************
 //FOOTER
 //*********************************************
