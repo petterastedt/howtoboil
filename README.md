@@ -8,7 +8,7 @@ Created using **React** and **Sass** for the frontend, **Node.js** with **expres
 
 Application demo:
 
-![demo3](https://user-images.githubusercontent.com/34421443/56898226-cc7ba180-6a90-11e9-848a-d1fc0b83fe9a.gif)
+![demo5](https://user-images.githubusercontent.com/34421443/57771528-3b086280-7713-11e9-98bb-5820a30bf61d.gif)
 
 ## TODO:
 
