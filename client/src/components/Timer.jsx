@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 export default function Timer() {
   const [timerIsStarted, setTimerIsStarted] = useState(false)
   const [timerIsHidden, setTimerIsHidden] = useState(true)
-  const countdownSeconds = useRef(3) // Number of seconds to count down, default 900 (15min)
+  const countdownSeconds = useRef(900) // Number of seconds to count down, default 900 (15min)
   const [secMin, setSecMin] = useState({
     min: Math.floor(countdownSeconds.current / 60),
     sec: '00'
@@ -23,11 +23,11 @@ export default function Timer() {
       countdownSeconds.current = countdownSeconds.current - 1
       if (countdownSeconds.current < 0) {
       alarm.play()
-      alarm.volume = 0.5
+      alarm.volume = 0.5 // Alarm volume
       setTimeout(() => {
         alarm.pause();
         alarm.currentTime = 0;
-      }, 8000)
+      }, 8000) // Number of seconds alarm will sound
       }
     }, 1000)
     return () => {

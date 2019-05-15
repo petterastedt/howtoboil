@@ -57,7 +57,7 @@ body {
   text-decoration: underline; }
 
 .menu-wrapper .links .link-wrapper .navlink-active {
-  color: #fff;
+  color: #0b3b8f;
   text-decoration: underline; }
 
 .show-menu {
@@ -207,7 +207,6 @@ body {
   animation-fill-mode: forwards;
   display: flex;
   flex-direction: row;
-  height: 475px;
   justify-content: center;
   margin: 0 auto;
   position: relative;
@@ -242,7 +241,6 @@ body {
 
 .timer {
   font-size: 38px;
-  margin-bottom: 20px;
   text-align: center;
   visibility: hidden; }
 
@@ -255,16 +253,14 @@ body {
   font-family: "Fjalla One", sans-serif;
   font-size: 16px;
   justify-content: center;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 10px 17px;
+  position: relative;
   transition: .3s all;
   width: 80px; }
 
 .timer-button:hover {
   transform: scale(1.1); }
-
-.timer-button:active {
-  background: white; }
 
 .footer {
   height: 30px;

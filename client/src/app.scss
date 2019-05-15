@@ -77,7 +77,7 @@ body {
                 }
             }
             .navlink-active {
-                color: #fff;
+                color: $third;
                 text-decoration: underline;
             } 
         }  
@@ -255,7 +255,6 @@ body {
     animation-fill-mode: forwards;
     display: flex;
     flex-direction: row;
-    height: 475px;
     justify-content: center;
     margin: 0 auto;
     position: relative;
@@ -292,7 +291,6 @@ body {
 }
 .timer {
     font-size: 38px;
-    margin-bottom: 20px;
     text-align: center;
     visibility: hidden;
 }
@@ -305,17 +303,14 @@ body {
     font-family: $fjalla;
     font-size: 16px;
     justify-content: center;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 10px 17px;
+    position: relative;
     transition: .3s all;
     width: 80px;
 
     &:hover {
         transform: scale(1.1);
-    }
-
-    &:active {
-        background: white;
     }
 }
 //*********************************************

@@ -17,7 +17,7 @@ export default function Instructions(props) {
         className="instructions-icon" 
         alt="instructions-icon"/>
         <p dangerouslySetInnerHTML={{ __html: props.content }}></p>
-        {props.content.includes('min') && <Timer />}
+        {props.content.includes('minutes') && <Timer />}
         </div>
         {props.slideStyle !== '100%' &&
         <img 
