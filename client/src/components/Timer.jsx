@@ -9,6 +9,10 @@ export default function Timer() {
     sec: '00'
   })
   useEffect(() => {
+    if (countdownSeconds.current < 0) {
+      const alarm = new Audio(require('../audio/alarm.mp3'))
+      alarm.play()
+    }
     if (timerIsStarted & countdownSeconds.current >= 0) {
     const timeout = setTimeout(() => {
       let minutes = Math.floor(countdownSeconds.current / 60)
@@ -35,9 +39,7 @@ export default function Timer() {
         onClick={() => {
           setTimerIsStarted(!timerIsStarted)
           setTimerIsHidden(false)
-        }
-        }
-        >
+        }}>
           <span>{timerIsStarted ? 'PAUSE TIMER' : 'START TIMER'}</span>
         </div>
     </div>
