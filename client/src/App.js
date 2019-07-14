@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Footer from './components/Footer';
+import React, { useState } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import Hamburger from './components/Hamburger'
+import Home from './pages/Home'
 import HowToBoil from './pages/HowToBoil'
 import NotFound404 from './pages/NotFound404'
-import Hamburger from './components/Hamburger'
+import Footer from './components/Footer'
 import './app.css'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       hamburgerState={hamburgerClicked}
       />
       <Switch>
+          <Route exact path="/" component={Home} />
           <Route path="/boil/:typeId" component={HowToBoil} />
           <Route path="*" component={NotFound404} />
       </Switch>

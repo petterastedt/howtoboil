@@ -4,17 +4,14 @@ const ContentSchema = new mongoose.Schema({
   name: String,
   subHeader: String,
   imgUrls: [String],
-  instructions: {
-    page1: String,
-    page2: String,
-    page3: String,
-    page4: String,
-  },
+  instructions: Object,
   subMenu: Boolean,
+  subMenuTitle: String,
   subMenuItems: [{
       id: Number,
       title: String
-    }]
+  }],
+  timer: Number  
 })
 const Content = mongoose.model('Content', ContentSchema);
 

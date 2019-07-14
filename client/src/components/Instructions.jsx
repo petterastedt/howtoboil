@@ -11,13 +11,14 @@ export default function Instructions(props) {
         onClick={props.slideRight}
         />
         <div className="instructions-content-wrapper">
-        <h2>Step {props.id +1}</h2>
+        <h2 className="instructions-title">{ props.content.headline }</h2>
+        {/* first off peel it */}
         <img 
         src={require(`../icons/${props.icon}`)}
         className="instructions-icon" 
         alt="instructions-icon"/>
-        <p dangerouslySetInnerHTML={{ __html: props.content }}></p>
-        {props.content.includes('minutes') && <Timer />}
+        <p className="instructions-textContent" dangerouslySetInnerHTML={{ __html: props.content.text }}></p>
+        {props.content.text.includes('minutes') && <Timer timer={props.timer}/>}
         </div>
         {props.slideStyle !== '100%' &&
         <img 

@@ -1,0 +1,53 @@
+@import '../variables.scss';
+@import '../animations.scss';
+
+.dd-wrapper {
+  left: 10px;
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+
+  .dd-header {
+    color: $text-dark;
+    cursor: pointer;
+    display: flex;
+    font-family: $fjalla;
+    font-size: 15px;
+    justify-content: center;
+    text-transform: uppercase;
+
+    &-title-red {
+      animation: blink .7s;
+      animation-iteration-count: 3;
+      color: #000;
+    }
+  }
+
+  .arrow-icons {
+    bottom: 11px;
+    height: 40px;
+    position: relative;
+    right: 8px;
+    width: 40px;
+  }
+
+  .dd-list {
+    border: 2px solid $main;
+    cursor: pointer;
+    list-style: none;
+    margin: 0;
+    position: fixed;
+    padding: 0;
+    width: 150px;
+
+    &-item {
+      padding: 5px 3px;
+
+      &:hover {
+        background: $main;
+        color: $secondary;
+        font-weight: bold;
+      }
+    }
+  }
+}

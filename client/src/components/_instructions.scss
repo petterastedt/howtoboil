@@ -1,0 +1,69 @@
+@import '../variables.scss';
+@import '../animations.scss';
+
+.content-carousel {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  transition: .4s all ease-out;
+  width: 100%;
+}
+
+.instructions {
+  animation: .5s unShrink;
+  animation-fill-mode: forwards;
+  background: $secondary;
+  border: 2px solid #000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  width: 300px;
+
+  &-content-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-title {
+    font-family: $fjalla;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &-icon {
+    height: 200px;
+    margin: 5px auto;
+    width: 200px;
+  }
+
+  &-ul li {
+    padding: 0;
+  }
+
+  &-textContent {
+    line-height: 1.1rem;
+    margin-top: 30px;
+  }
+
+  .left-icon,
+  .right-icon {
+    cursor: pointer;
+    height: 50px;
+    margin: auto -10px;
+    position: relative;
+    width: 50px;
+  }
+}

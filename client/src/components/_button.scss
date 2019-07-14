@@ -1,0 +1,35 @@
+@import '../variables.scss';
+
+.main-button {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 20px 0;
+  position: relative;
+  transition: 1s all ease-in-out;
+  width: 100%;
+  padding: 0;
+
+  .button {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    background: $third;
+    border-radius: 50%;
+    height: 15vh;
+    justify-content: center;
+    transition: .3s all;
+    width: 15vh;
+    position: relative;
+    z-index: 23 !important;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &-text {
+      font-family: $fjalla;
+      font-size: 3.5vh;
+      font-weight: lighter;
+    }
+  }
+}

@@ -1,17 +1,16 @@
-//*********************************************
-//VARIABLES
-//*********************************************
-$main:#000000;
-$secondary: #eec92e;
-$third: #0b3b8f;
-$text-light: #ffffff;
-$text-dark: #000000;
+@import 'variables.scss';
+@import 'animations.scss';
+@import 'components/button';
+@import 'components/footer';
+@import 'components/hamburger';
+@import 'components/instructions';
+@import 'components/logo';
+@import 'components/selecttype';
+@import 'components/timer';
 
-$lato: 'Lato', sans-serif;
-$fjalla: 'Fjalla One', sans-serif;
-//*********************************************
-//GLOBAL
-//*********************************************
+//********************************************* 
+//GLOBAL  
+//********************************************* 
 html, body {
     height: 100%;
     scroll-behavior: smooth;
@@ -20,7 +19,7 @@ body {
     background: $main;
     color: $text-light;
     font-family: $lato;
-    font-size: 14px;
+    font-size: 14px; 
 }
 .skewed-bg {
     background: $secondary; 
@@ -36,306 +35,38 @@ body {
     }
 }
 //*********************************************
-//HAMBURGER
-//*********************************************
-.menu-wrapper { 
-    display: flex;
-
-    .hamburger {
-        cursor: pointer;
-        transition: 1s all;
-        width: 30px;
-    
-        .one, .two, .three {
-            background: $main;
-            border-radius: 10px;
-            height: 4px;
-            margin: 3px;
-            position: relative;
-            transition: .1s all;
-        }
-    }
-    .links {
-        display: none;
-        font-family: $fjalla;
-        font-size: 20px;
-        font-weight: lighter;
-        justify-content: center;
-        width: 100%;
-    
-        .link-wrapper {
-            display: flex; 
-            margin: 0 10px;
-                
-            .navlink {
-                color: $text-dark;
-                text-decoration: none;
-                margin: 0 2px;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-            .navlink-active {
-                color: $third;
-                text-decoration: underline;
-            } 
-        }  
-    }
-}
-.show-menu {
-    animation: unShrink .4s;
-    display: flex !important;
-}
-.hamburger-close-top {
-    top: 7px;
-    transform: rotate(45deg);
-}
-.hamburger-close-middle {
-    opacity: 0;
-}
-.hamburger-close-bottom {
-    bottom: 7px;
-    transform: rotate(-45deg);
-}
-//*********************************************
-//LOGO
-//*********************************************
-.logo  {
-    display: flex;
+//HOME
+//********************************************* 
+.home {
     color: $text-dark;
-    flex-direction: column;
-    margin: 0 auto;
-    padding-top: 50px;
-    width: 300px;
 
-    .logo-top {
-        display: flex;
-        flex-direction: column-reverse;
-        transition:  all .5s;
-
-        .title {
-            font-family: $fjalla;
-            font-weight: lighter;
-            line-height: 150%;
-            margin: 0;
-            text-transform: uppercase;
-            font-size: 45px;
-            padding: 0;
-        }
-
-        .logo-icon {
-            height: 200px;
-            margin: 0 auto;
-            padding: 0 0 15px 0;
-            width: 200px;
-        }
-    }
-
-    .border {
-        margin: 0 auto;
-        border-bottom: 2px solid;
-        width: 300px;
-    }
-
-    .text {
-        font-size: 18px;
-        font-style: italic;
-        font-weight: 400;
-        margin: 15px 0;
-        text-align: center;
-}
-}
-.potato {
-    font-size: 38px !important;
-}
-//*********************************************
-//SELECT TYPE DROP DOWN
-//*********************************************
-.dd-wrapper {
-    font-size: 16px;
-    left: 10px;
-    margin: 0 auto;
-    position: relative;
-    width: 170px;
-
-    .dd-header {
-        color: $text-dark;
-        cursor: pointer;
-        display: flex;
+    h1 {
         font-family: $fjalla;
-        justify-content: center;
-        text-transform: uppercase;
-    }
-
-    .arrow-icons {
-        bottom: 11px;
-        height: 40px;
-        position: relative;
-        right: 8px;
-        width: 40px;
-    }
-
-    .dd-list {
-        border: 2px solid $main;
-        cursor: pointer;
-        list-style: none;
-        margin: 0;
-        position: fixed;
-        padding: 0;
-        width: 150px;
-    }
-
-    .dd-list-item {
-        padding: 5px 3px;
-    }
-
-    .dd-list-item:hover {
-        background: $main;
-        color: $secondary;
-        font-weight: bold;
-    }
-}
-//*********************************************
-//BUTTON
-//*********************************************
-.main-button {
-    display: flex;
-    justify-content: center;
-    margin: 15px 0 20px 0;
-    position: relative;
-    transition: 1s all ease-in-out;
-    width: 100%;
-    padding: 0;
-
-    .button {
-        align-items: center;
-        cursor: pointer;
-        display: flex;
-        background: $third;
-        border-radius: 50%;
-        height: 15vh;
-        justify-content:center;
-        transition: .3s all;
-        width: 15vh;
-        position: relative;
-        z-index: 23 !important;
-
-        &:hover {
-            transform: scale(1.1);
-        }
-
-        h3 {
-            font-family: $fjalla;
-            font-size: 3.5vh;
-            font-weight: lighter;
-        }
-    }
-}
-//*********************************************
-//INSTRUCTIONS
-//*********************************************
-.content-carousel {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-}
-.content-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    transition: .4s all ease-out;
-    width: 100%;
-}
-.instructions {
-    background: $secondary;
-    border: 2px solid #000;
-    animation: .5s unShrink;
-    animation-fill-mode: forwards;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0 auto;
-    position: relative;
-    width: 300px;
-
-    .instructions-content-wrapper {
-        display: flex;
-        flex-direction: column;
-
-        h2 {
-            font-family: $fjalla;
-            font-size: 30px;
-            font-weight: 300;
-            margin-bottom: 10px;
-            text-align: center;
-            text-transform: uppercase;
-        }
-        .instructions-icon {
-            height: 200px;
-            margin: 5px auto;
-            width: 200px;
-        }
-        .instructions-ul li{
-            padding: 0;
-        }
-    }
-    img {
-        cursor: pointer;
-        height: 50px;
-        margin: auto -10px;
-        position: relative;
-        width: 50px;
-    }
-}
-.timer {
-    font-size: 38px;
-    text-align: center;
-    visibility: hidden;
-}
-.timer-button {
-    align-items: center;
-    background: $third;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    font-family: $fjalla;
-    font-size: 16px;
-    justify-content: center;
-    margin: 20px auto;
-    padding: 10px 17px;
-    position: relative;
-    transition: .3s all;
-    width: 80px;
-
-    &:hover {
-        transform: scale(1.1);
-    }
-}
-//*********************************************
-//FOOTER
-//*********************************************
-.footer {
-    height: 30px;
-    position: relative;
-    top: 50px;
-    width: 100%;
-
-    .credits {
-        color: #666;
-        margin: 0 0 10px 0;
         text-align: center;
-    }
+        text-transform: uppercase;
+    } 
+}
+.food-icon-container {
+    display: flex;
+    justify-content: space-around;
 
-    .link {
-        color: #00B285;
-        text-decoration: none;
+    .food-icon {
+        border: 3px solid $text-dark;
+        margin: 10px;
+        width: 80px;
     }
-  }
+}
+
 //*********************************************
 //ERROR, LOADING ETC.
 //*********************************************
+.selectErrorMessage {
+    animation: unShrink .3s;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
 .error {
     text-align: center;
 
@@ -376,100 +107,7 @@ body {
     text-indent: -9999em;
     transform: translateZ(0);
 }
-//*********************************************
-//ANIMATIONS
-//*********************************************
-.swipeLeft {
-    animation: 20s swipeLeft;
-    animation-fill-mode: forwards;
-}
-.slideDown {
-    animation: .2s slideDown;
-    animation-fill-mode: forwards;
-}
-.slideUp {
-    animation: .2s slideUp;
-    animation-fill-mode: forwards;
-}
-@keyframes slideDown {
-    0% {
-        top: 0;
-    }
-    100% {
-        top: 140px;
-    }
-}
-@keyframes slideUp {
-    0% {
-        top: 120px;
-    }
-    100% {
-        top: 0;
-    }
-}
-.unShrink {
-    visibility: visible;
-    animation: .5s unShrink;
-    animation-fill-mode: forwards;
-}
-@keyframes unShrink {
-    0% {
-        transform: scale(0);
-    }
-    60% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-.shrink {
-    animation: .4s shrink;
-    animation-fill-mode: forwards;
-}
-.shrink-button {
-    animation: .3s shrink;
-    animation-fill-mode: forwards;
-    position: absolute;
-}
-.shrink-logo {
-    animation: .3s shrink-logo;
-    animation-fill-mode: forwards;
-    padding-top: 0 !important;
-    transition: .3s all;
-}
-@keyframes shrink {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0);
-    }
-}
-@keyframes shrink-logo {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(.9);
-    }
-}
-@keyframes swipeLeft {
-    0% {
-        right: 0;
-    }
-    100% {
-        right: 25%;
-    }
-}
-@keyframes load8 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
 //*********************************************
 //MEDIA QUERIES DESKTOP
 //*********************************************

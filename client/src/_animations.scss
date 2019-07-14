@@ -1,0 +1,104 @@
+//*********************************************
+//ANIMATIONS
+//*********************************************
+.swipeLeft {
+    animation: 20s swipeLeft;
+    animation-fill-mode: forwards;
+}
+.slideDown {
+    animation: .2s slideDown;
+    animation-fill-mode: forwards;
+}
+.slideUp {
+    animation: .2s slideUp;
+    animation-fill-mode: forwards;
+}
+@keyframes blink {
+    0% {
+        color: red;
+        opacity: 0;
+    } 
+    100% {
+        color: red;
+        opacity: 1;
+    }
+}
+@keyframes slideDown {
+    0% {
+        top: 0;
+    } 
+    100% {
+        top: 140px;
+    }
+}
+@keyframes slideUp {
+    0% {
+        top: 120px;
+    }
+    100% {
+        top: 0;
+    }
+}
+.unShrink {
+    visibility: visible !important;
+    animation: .5s unShrink;
+    animation-fill-mode: forwards;
+}
+@keyframes unShrink {
+    0% {
+        transform: scale(0);
+    }
+    60% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.shrink {
+    animation: .4s shrink;
+    animation-fill-mode: forwards;
+}
+.shrink-button {
+    animation: .3s shrink;
+    animation-fill-mode: forwards;
+    position: absolute;
+}
+.shrink-logo {
+    animation: .3s shrink-logo;
+    animation-fill-mode: forwards;
+    padding-top: 0 !important;
+    transition: .3s all;
+}
+@keyframes shrink {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes shrink-logo {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(.9);
+    }
+}
+@keyframes swipeLeft {
+    0% { 
+        right: 0;
+    }
+    100% {
+        right: 25%;
+    }
+}
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

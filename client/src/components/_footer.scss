@@ -1,0 +1,23 @@
+@import '../variables.scss';
+
+.footer {
+  height: 30px;
+  position: relative;
+  top: 10vh;
+  width: 100%; 
+
+  &-credits {
+    color: #666;
+    margin: 0 0 10px 0;
+    text-align: center;
+  }
+
+  &-link {
+    color: #00B285;
+    text-decoration: none;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+}

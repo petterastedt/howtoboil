@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-export default function Timer() {
+export default function Timer(props) {
   const [timerIsStarted, setTimerIsStarted] = useState(false)
   const [timerIsHidden, setTimerIsHidden] = useState(true)
-  const countdownSeconds = useRef(900) // Number of seconds to count down, default 900 (15min)
+  const countdownSeconds = useRef(props.timer) // Number of seconds to count down, default 900 (15min)
   const [secMin, setSecMin] = useState({
-    min: Math.floor(countdownSeconds.current / 60),
+    min: countdownSeconds.current > 600 ? Math.floor(countdownSeconds.current / 60) :
+    `0${Math.floor(countdownSeconds.current / 60)}`,
     sec: '00'
   })
+
   useEffect(() => {
     if (timerIsStarted & countdownSeconds.current >= 0) {
     const timeout = setTimeout(() => {
@@ -35,6 +37,7 @@ export default function Timer() {
     }
     }
   })
+
   return (
     <div className="countdown-timer">
         <div className={timerIsHidden ? 'timer' : 'timer unShrink'}>

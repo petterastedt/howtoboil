@@ -1,0 +1,52 @@
+@import '../variables.scss';
+
+.logo  {
+  display: flex;
+  color: $text-dark;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 50px;
+  width: 300px;
+
+  &-top {
+    display: flex;
+    flex-direction: column-reverse;
+    transition:  all .5s;
+
+    .title {
+      font-family: $fjalla;
+      font-size: 45px;
+      font-weight: lighter;
+      line-height: 150%;
+      margin: 0;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 0;
+    }
+  }
+
+  &-icon {
+    height: 200px;
+    margin: 0 auto;
+    padding: 0 0 15px 0;
+    width: 200px;
+  }
+
+  &-border {
+    margin: 0 auto;
+    border-bottom: 2px solid;
+    width: 300px;
+  }
+
+  &-text {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    margin: 15px 0;
+    text-align: center;
+  }
+}
+
+.potato {
+  font-size: 38px !important;
+}

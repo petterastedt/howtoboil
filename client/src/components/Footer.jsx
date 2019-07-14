@@ -2,12 +2,12 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className="footer">
-	<p className="credits">
-    &copy; 2019 Petter Åstedt 
-    <a className="link" href="https://github.com/petterastedt"> GitHub </a>
+<div className="footer">
+	<p className="footer-credits">
+    &copy; 2019 Petter Åstedt
+    <a className="footer-link" href="https://github.com/petterastedt"> GitHub </a>
     |
-    <a className="link" href="https://www.linkedin.com/in/petterastedt/"> LinkedIn</a>
+    <a className="footer-link" href="https://www.linkedin.com/in/petterastedt/"> LinkedIn</a>
   </p>
 </div>
   )

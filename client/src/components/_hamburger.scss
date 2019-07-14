@@ -1,0 +1,67 @@
+@import '../variables.scss';
+@import '../animations.scss';
+
+.navigation { 
+  display: flex;
+
+  &-hamburger {
+    cursor: pointer;
+    transition: 1s all;
+    width: 30px;
+    
+    .one,
+    .two,
+    .three {
+      background: $main;
+      border-radius: 10px;
+      height: 4px;
+      margin: 3px;
+      position: relative;
+      transition: .1s all;
+    }
+  }
+
+  .links {
+    display: none;
+    font-family: $fjalla;
+    font-size: 20px;
+    font-weight: lighter;
+    justify-content: center;
+    width: 100%;
+    
+    .navlink-wrapper {
+      display: flex; 
+      margin: 0 10px;
+                
+      .navlink {
+        color: $text-dark;
+        text-decoration: none;
+        margin: 0 2px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .navlink-active {
+        color: $third;
+        text-decoration: underline;
+      } 
+    }  
+  }
+}
+.show-menu {
+    animation: unShrink .4s;
+    display: flex !important;
+}
+.hamburger-close-top {
+    top: 7px;
+    transform: rotate(45deg);
+}
+.hamburger-close-middle {
+    opacity: 0;
+}
+.hamburger-close-bottom {
+    bottom: 7px;
+    transform: rotate(-45deg);
+}

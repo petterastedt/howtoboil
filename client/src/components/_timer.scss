@@ -1,0 +1,27 @@
+@import '../animations.scss';
+@import '../variables.scss';
+
+.timer {
+  font-size: 38px;
+  text-align: center;
+  visibility: hidden;
+}
+
+.timer-button {
+  align-items: center;
+  background: $third;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  font-family: $fjalla;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 10px 17px;
+  position: relative;
+  transition: .3s all;
+  width: 80px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
