@@ -12,10 +12,10 @@ Application demo:
 
 ## TODO:
 
-- [ ] Add custom icons to instructions component (**partially finished**)
+- [ ] Add custom icons to instructions component (**partially finished, more icons added!**)
 - [ ] Styling for big screens (Desktop)
 - [x] ~~Add touch/swipe functionallity for content slider~~
-- [ ] Clean up SCSS file
+- [ ] Clean up SCSS file (**partially finished**)
 - [x] ~~Add timer for instructions component~~
-- [ ] Add proper home-page
+- [ ] Add proper home-page (**partially finished**)
 - [ ] Deploy to Heroku / github pages
